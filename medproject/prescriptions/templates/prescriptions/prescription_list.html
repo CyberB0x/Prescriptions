@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Список рецептов</title>
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container py-5">
+    <div class="mb-3">
+        <button type="button" class="btn btn-secondary" onclick="history.back();">← Назад</button>
+    </div>
+
+    <h1 class="mb-4">Список рецептов</h1>
+
+    {% if prescriptions %}
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            {% for prescription in prescriptions %}
+                <div class="col">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ prescription.patient_name }}</h5>
+                            <p class="card-text">
+                                <strong>Препарат:</strong> {{ prescription.medication }}
+                            </p>
+                            <a href="{% url 'prescription_detail' prescription.pk %}" class="btn btn-primary">
+                                Подробнее
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-warning">Рецептов пока нет.</div>
+    {% endif %}
+</div>
+
+</body>
+</html>

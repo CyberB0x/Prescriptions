@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prescription PDF</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2em;
+            color: #333;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 2em;
+        }
+        .section {
+            margin-bottom: 1.5em;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 0.5em;
+        }
+        .label {
+            font-weight: bold;
+        }
+        .value {
+            margin-left: 0.5em;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 3em;
+            font-size: 12px;
+            color: #666;
+        }
+        .box {
+            border: 1px solid #ccc;
+            padding: 1em;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Medical Prescription</h1>
+        <p><em>{{ prescription.date_created }}</em></p>
+    </div>
+
+    <div class="section box">
+        <p><span class="label">Patient:</span><span class="value">{{ prescription.patient_name }}</span></p>
+        <p><span class="label">Doctor:</span><span class="value">{{ prescription.doctor_name }}</span></p>
+    </div>
+
+    <div class="section box">
+        <p><span class="label">Medications:</span></p>
+        <p>{{ prescription.medications|linebreaks }}</p>
+    </div>
+
+    <div class="footer">
+        &copy;

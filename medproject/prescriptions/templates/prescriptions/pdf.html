@@ -42,7 +42,7 @@
 <body>
     <div class="header">
         <h1>Medical Prescription</h1>
-        <p><em>{{ prescription.date_created }}</em></p>
+        <p><em>{{ prescription.issued_at }}</em></p>
     </div>
 
     <div class="section box">
@@ -52,7 +52,7 @@
 
     <div class="section box">
         <p><span class="label">Medications:</span></p>
-        <p>{{ prescription.medications|linebreaks }}</p>
+        <p>{{ prescription.content|linebreaks }}</p>
     </div>
 
     <div class="footer">

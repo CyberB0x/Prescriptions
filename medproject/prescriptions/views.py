@@ -10,9 +10,8 @@ def create_prescription(request):
     if request.method == 'POST':
         form = PrescriptionForm(request.POST)
         if form.is_valid():
-            prescription = form.save()
-            # Тут можно отправить email с ссылкой
-            return redirect(prescription.get_absolute_url())
+            form.save()
+            return redirect('prescriptions_list')  # или detail
     else:
         form = PrescriptionForm()
     return render(request, 'prescriptions/create.html', {'form': form})

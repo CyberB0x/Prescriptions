@@ -60,3 +60,4 @@ PDF генерируется с помощью шаблона pdf.html и биб
 🧑‍💻 Автор
 Arslonbek Erkinov
 GitHub: @CyberB0x
+
